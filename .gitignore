@@ -1,3 +1,4 @@
 .idea/
 Scripts/
 fbeenv/
+/config.py
