@@ -1,6 +1,7 @@
 .idea/
 Scripts/
 fbeenv/
-__pycache__/*
+*.pyc
+
 
 
