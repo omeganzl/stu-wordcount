@@ -27,14 +27,13 @@ def index():
         try:
             url = request.form['url']
             r = requests.get(url)
-            print(r.text)
         except:
             errors.append("Unable to get URL. Please make sure it's valid and try again")
             return render_template('index.html', errors=errors)
         if r:
             #text processing
             raw = BeautifulSoup(r.text, 'html.parser').get_text()
-            nltk.data.path.append('./nltk_data/') # set the path
+            nltk.data.path.append('./nltk_data/')  # set the path
             tokens = nltk.word_tokenize(raw)
             text = nltk.Text(tokens)
             # remove punctuation, count raw words
