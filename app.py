@@ -15,7 +15,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
-from models import Result
+from models import *
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -54,7 +54,7 @@ def index():
                     url=url,
                     result_all=raw_word_count,
                     result_no_stop_words=no_stop_words_count
-                )[:10]
+                )
                 db.session.add(result)
                 db.session.commit()
             except:
